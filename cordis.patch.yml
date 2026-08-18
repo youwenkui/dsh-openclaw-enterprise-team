@@ -1,0 +1,7 @@
+- insert:
+    - id: openclaw-enterprise-team
+      name: dsh-openclaw-enterprise-team
+      config:
+        openclawCommand: openclaw
+        defaultAgentId: ertsadgs
+        timeoutSeconds: 600
