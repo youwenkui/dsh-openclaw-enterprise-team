@@ -3,5 +3,5 @@
       name: dsh-openclaw-enterprise-team
       config:
         openclawCommand: openclaw
-        defaultAgentId: ertsadgs
+        defaultAgentId: main
         timeoutSeconds: 600

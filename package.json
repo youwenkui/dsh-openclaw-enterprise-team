@@ -1,6 +1,6 @@
 {
   "name": "dsh-openclaw-enterprise-team",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "OpenClaw Enterprise AI Team bridge for DeepSeek Harness",
   "type": "module",
   "main": "index.js",
@@ -29,7 +29,7 @@
     "multi-agent",
     "agent-team"
   ],
-  "author": "Ulysses",
+  "author": "OpenClaw Community",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -63,7 +63,6 @@
     }
   },
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   }
 }

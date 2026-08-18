@@ -8,7 +8,7 @@ DSH is the conversational interface. OpenClaw remains the source of truth for ag
 
 ## What it provides
 
-- `openclaw_team_health` — verify the OpenClaw Gateway
+- `openclaw_team_health` — verify the OpenClaw Gateway through a minimal, redacted health projection
 - `openclaw_team_list` — discover configured OpenClaw agents
 - `openclaw_team_start` — start a task with an OpenClaw lead agent
 - `openclaw_team_continue` — steer or continue the same OpenClaw session
@@ -28,13 +28,13 @@ Every task returns an OpenClaw `sessionKey`. DSH does not invent or persist a se
 From GitHub during alpha:
 
 ```bash
-dsh plugin --profile web add github:youwenkui/dsh-openclaw-enterprise-team#v0.1.0-alpha.1
+dsh plugin --profile web add dsh-openclaw-enterprise-team
 ```
 
 From a release tarball:
 
 ```bash
-dsh plugin --profile web add ./dsh-openclaw-enterprise-team-0.1.0-alpha.1.tgz
+dsh plugin --profile web add ./dsh-openclaw-enterprise-team-0.1.0-alpha.2.tgz
 ```
 
 Verify that the bundle layer is active:
@@ -52,7 +52,7 @@ Override the bundle row in the profile's `cordis.patch.yml` when needed:
   name: dsh-openclaw-enterprise-team
   config:
     openclawCommand: /absolute/path/to/openclaw
-    defaultAgentId: enterprise-chief
+    defaultAgentId: main
     timeoutSeconds: 600
 ```
 
@@ -78,7 +78,10 @@ DSH conversation
 
 - No API key, token or cookie is stored by this package.
 - Commands are executed with `execFile`, not a shell.
-- The agent list response omits local workspace and agent-directory paths.
+- Health responses omit channel accounts, plugin names, sessions and local runtime details.
+- Agent lists omit local paths and model configuration.
+- Agent results omit system prompts, workspace paths, model metadata and tool inventories.
+- Command errors redact the home directory and credential-like values.
 - OpenClaw authorization and approval policy remain authoritative.
 - Removing this plugin does not remove OpenClaw sessions or enterprise data.
 - Run DSH and OpenClaw under the same trusted OS account only when that trust boundary is intended.
@@ -96,7 +99,7 @@ npm run pack:check
 
 | Plugin | DeepSeek Harness | OpenClaw |
 |---|---|---|
-| `0.1.0-alpha.1` | `0.1.0-rc.7` | `2026.7.1-2` tested |
+| `0.1.0-alpha.2` | `0.1.0-rc.7` | `2026.7.1-2` tested |
 
 ## Uninstall
 
